@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Event Bubbling</title>
+	<style type="text/css">
+		div{
+			width: 500px;
+			heght: 400px;
+			background-color: indianred;
+		}
+	</style>
+</head>
+<body>
+	<button id="event">Click Me</button>
+	<div onmouseover="over(this)" onmouseout="out(this)">
+		<h1>Mouse hover</h1>
+	</div>
+	<script type="text/javascript">
+		document.getElementById("event").addEventListener("click",function(){
+			alert("You Clicked the Button");
+		});
+		function over(obj){
+			obj.innerHTML="inside the div element";
+		}
+		function out(obj){
+			obj.innerHTML="Out side div"
+		}
+	</script>
+
+</body>
+</html>

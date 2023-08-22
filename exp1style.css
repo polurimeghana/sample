@@ -1,0 +1,24 @@
+.one{
+	background-color:rgb(255,140,0);
+	height:60px;
+	width: 60px;
+}
+.two{
+	background-color:rgb(230,160,110);
+	height:60px;
+	width: 60px;
+}
+.three{
+	background-color:rgb(110,40,10);
+	height:60px;
+	width: 60px;
+}
+.one:hover{
+	transform: scale(1.2);
+}
+.two:hover{
+	transform: scale(1.2);
+}
+.three:hover{
+	transform: scale(1.2);
+}
