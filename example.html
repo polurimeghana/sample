@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-do list</title>
+
+</head>
+<body>
+    <h1>Shopping list</h1>
+    <input type='text' id='input'>
+    <button id='b1'>Add</button>
+    <ul id="list">
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Chocolates</li>
+        <li>Lays</li>
+    </ul>
+    <script>
+        var ele = document.getElementById('b1');
+        var input = document.getElementById('input');
+        var list = document.getElementById('list');
+
+        function eleAdd() {
+            var newItem = input.value.trim();
+            if (newItem !== "") {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(newItem));
+                list.appendChild(li);
+                input.value = "";
+                input.focus();
+                setupListItem(li);
+            }
+        }
+
+        function setupListItem(li) {
+            li.addEventListener("click", function () {
+                li.style.textDecoration = "line-through";
+            });
+
+            var deleteButton = document.createElement("button");
+            deleteButton.appendChild(document.createTextNode("Delete"));
+            deleteButton.addEventListener("click", function () {
+                list.removeChild(li);
+            });
+
+            li.appendChild(deleteButton);
+        }
+
+        ele.addEventListener("click", eleAdd);
+
+        input.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                eleAdd();
+            }
+        });
+
+        var initialItems = list.getElementsByTagName("li");
+        for (var i = 0; i < initialItems.length; i++) {
+            setupListItem(initialItems[i]);
+        }
+    </script>
+</body>
+</html>
